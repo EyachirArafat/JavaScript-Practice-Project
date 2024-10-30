@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://kit.fontawesome.com/3974ac3c53.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="tailwind.css">
+    <title>Flower Bank App</title>
+  </head>
+  <body class="bg-mainBackground">
+    <nav class="container-fluid">
+      <div class="flex justify-between items-center m-4 border-b border-b-slate-950 pb-2">
+        <h2 class="font-bold md:text-4xl sm:text-3xl text-2xl text-lime-500">Flower <span class="text-[#007AFF]">Bank</span></h2>
+        <div class="flex justify-between items-center gap-4">
+          <i class="fa-solid fa-bell text-2xl cursor-pointer" onclick="menuBar('notifications')" id="user"></i>
+          <i class="fa-solid fa-bars text-2xl cursor-pointer" onclick="menuBar('menuBar')"></i>
+        </div>
+      </div>
+      <ul class="absolute hidden bg-slate-800 w-full h-72" id="notifications">
+        <li class="flex justify-center items-center text-white h-full" id="notifications">Empty Notifications</li>
+      </ul>
+
+      <ul class="absolute top-20 right-4 text-white bg-[#161e20] rounded-xl sm:w-1/3 w-2/3 hidden overflow-y-auto scrollbar-hide" id="menuBar">
+        <li class="bar-element">
+          <img src="assets/dashboard_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="Dashboard">
+          Dashboard
+        </li>
+        <li class="bar-element" id="addMBtn">
+          <img src="assets/attach_money_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="Add Money">
+          Add Money
+        </li>
+        <li class="bar-element" id="withdrawMBtn">
+          <img src="assets/money_off_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="Withdraw Money">
+          Withdraw Money
+        </li>
+        <li class="bar-element">
+          <img src="assets/swap_horiz_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="Withdraw Money">
+          Transactions
+        </li>
+        <li class="bar-element">
+          <img src="assets/person_add_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="SignUp">
+          SignUp
+        </li>
+        <li class="bar-element">
+          <img src="assets/login_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="Login">
+          Login
+        </li>
+      </ul>
+    </nav>
+
+
+    <section class="container-fluid lg:px-10 mx-4 bg-[#a6eafb] h-3/4 shadow-xl rounded-xl">
+      <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden backdrop"></div>
+      
+    
+      <div class="grid grid-cols-12 gap-4">
+        <div class="md:col-span-6 col-span-12">
+          <div class="">
+            <div class="p-4">
+              <p class="font-bold text-xl text-nowrap">Current Balance</p>
+              <h1 class="text-6xl pt-4 font-semibold" id="currentBalance">$0.00</h1>
+            </div>
+          </div>
+  
+          <div class="flex pt-10">
+            <div class="mx-4">
+              <button class="text-nowrap text-white font-bold p-2 md:p-4 rounded-xl transition-transform hover:scale-105 hover:bg-[#00bfff] bg-main" id="addMBtn">Add Money</button>
+            </div>
+            <div class="">
+              <button class="text-nowrap font-bold text-white p-2 mb-4 md:p-4 rounded-xl transition-transform hover:scale-105 hover:bg-[#0077ff] bg-main" id="withdrawMBtn">Withdraw Money</button>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-12 col-span-12 ">
+          <div id="modal" class="w-2/3 rounded-xl shadow-xl bg-green-200 mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden modal">
+            <form action="">
+            <div class="flex flex-col space-y-4 p-4 ">
+              <div>
+                <label for="payMethod" class="sm:text-xl font-bold text-lg text-secondaryText">Payment Method:</label><br>
+                <select name="" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" id="payMethod" required>
+                  <option value="select" disabled selected>Select Once</option>
+                  <option value="paypal">Paypal</option>
+                  <option value="debit-card">Debit Card</option>
+                  <option value="bank-transfer">Bank Transfer</option>
+                  <option value="google-pay">Google Pay</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="email" class="sm:text-xl font-bold text-lg text-secondaryText">Email/Account Number:</label><br>
+                <input type="text" id="email" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" placeholder="Email/account number" required>
+              </div>
+
+              <div>
+                <label for="amountInputAdd" class="sm:text-xl font-bold text-lg text-secondaryText">Amount</label><br>
+                <input type="number" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" required id="amountInputAdd" placeholder="Enter amount" min="1">
+              </div>
+              
+              <div class="pt-4 text-center"><button class="w-full bg-successMessages hover:bg-green-500 py-2 text-white font-bold rounded-full transition-transform hover:scale-105" id="addMoneyBtn">Proceed</button></div>
+            </div>
+          </form>
+          </div>
+          
+          
+          <div id="modal1" class="w-2/3 rounded-xl shadow-xl bg-green-200 mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden modal1">
+            <form action="">
+            <div class="flex flex-col space-y-4 p-4 ">
+
+              <div>
+                <label for="email" class="sm:text-xl font-bold text-lg text-secondaryText">Email/Account Number:</label><br>
+                <input type="text" id="email" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" placeholder="Email/account number" required>
+              </div>
+
+              <div>
+                <label for="amountInputWithdraw" class="sm:text-xl font-bold text-lg text-secondaryText">Amount</label><br>
+                <input type="number" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" required id="amountInputWithdraw" placeholder="Enter amount" min="1">
+              </div>
+              
+              <div class="pt-4 text-center"><button class="w-full bg-errorMessages hover:bg-red-500 py-2 text-white font-bold rounded-full transition-transform hover:scale-105" id="withdrawMoneyBtn">Withdraw</button></div>
+            </div>
+          </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="container-fluid lg:px-10 mx-4 border-t border-t-slate-200 border-b border-b-slate-300 mt-3 pt-3 mb-4 bg-sectionBackground rounded-lg">
+      <div class="flex justify-between items-center pb-3 px-4 -z-10">
+        <p class="font-bold text-2xl text-mainText">Quick Send</p>
+      
+        <button class="font-semibold text-nowrap border border-slate-300 py-1 px-2 rounded-xl cursor-pointer transition-colors hover:bg-gradient-to-r hover:from-blue-300 hover:to-blue-600 hover:text-white" id="seeAll">See All</button>
+
+      </div>
+      <div class="flex gap-3 overflow-x-scroll scrollbar-hide pb-4 px-4 ">
+        <span class="userInfo bg-[#1ee9bc]">A</span>
+        <span class="userInfo bg-secondary">B</span>
+        <span class="userInfo bg-[#b3e91e]">C</span>
+        <span class="userInfo bg-[#1e5ee9]">D</span>
+        <span class="userInfo bg-[#ff004c] text-white">E</span>
+        <span class="userInfo bg-[#e268a1]">F</span>
+        <span class="userInfo bg-secondary">G</span>
+        <span class="userInfo bg-[#dce91e]">H</span>
+        <span class="userInfo bg-[#c98585]">I</span>
+        <span class="userInfo bg-[#1ee9bc]">J</span>
+        <span class="userInfo bg-[#ff004c] text-white">K</span>
+        <span class="userInfo bg-secondary">L</span>
+      </div>
+    </section>
+
+    <section class="container-fluid lg:px-10 px-4 bg-sectionBackground rounded-lg shadow-lg">
+      <div>
+        <div class="flex justify-start items-center py-3 mb-4 border-b border-b-slate-300 px-4 shadow-lg">
+          <p class="font-bold text-2xl text-mainText">Recent transactions</p>
+        </div>
+        <div class="overflow-x-auto scrollbar-hide px-4">
+          <ul class="min-w-full h-72" id="transParent">
+            <!-- Dynamically updating -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    
+    
+   
+    
+    
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

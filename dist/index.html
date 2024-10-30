@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="https://kit.fontawesome.com/3974ac3c53.js" crossorigin="anonymous"></script>
+    <title>Flower Bank App</title>
+    <script type="module" crossorigin src="/assets/index-DTo2MXpz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BIsK9kUa.css">
+  </head>
+  <body class="bg-mainBackground">
+    <nav class="container-fluid">
+      <div class="flex justify-between items-center m-4 border-b border-b-slate-950 pb-2">
+        <h2 class="font-bold md:text-4xl sm:text-3xl text-2xl text-lime-500">Flower <span class="text-[#007AFF]">Bank</span></h2>
+        <div class="flex justify-between items-center gap-4">
+          <i class="fa-solid fa-bell text-2xl cursor-pointer" onclick="menuBar('notifications')" id="user"></i>
+          <i class="fa-solid fa-bars text-2xl cursor-pointer" onclick="menuBar('menuBar')"></i>
+        </div>
+      </div>
+      <ul class="absolute hidden bg-slate-800 w-full h-72" id="notifications">
+        <li class="flex justify-center items-center text-white h-full" id="notifications">Empty Notifications</li>
+      </ul>
+
+      <ul class="absolute top-20 right-4 text-white bg-[#161e20] rounded-xl sm:w-1/3 w-2/3 hidden overflow-y-auto scrollbar-hide" id="menuBar">
+        <li class="bar-element">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%20%3e%3cpath%20d='M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400%20320v-400h320v400H520Zm-400%200v-240h320v240H120Zm80-400h160v-240H200v240Zm400%20320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0%20240ZM360-280Z'/%3e%3c/svg%3e" alt="Dashboard">
+          Dashboard
+        </li>
+        <li class="bar-element" id="addMBtn">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%3e%3cpath%20d='M441-120v-86q-53-12-91.5-46T293-348l74-30q15%2048%2044.5%2073t77.5%2025q41%200%2069.5-18.5T587-356q0-35-22-55.5T463-458q-86-27-118-64.5T313-614q0-65%2042-101t86-41v-84h80v84q50%208%2082.5%2036.5T651-650l-74%2032q-12-32-34-48t-60-16q-44%200-67%2019.5T393-614q0%2033%2030%2052t104%2040q69%2020%20104.5%2063.5T667-358q0%2071-42%20108t-104%2046v84h-80Z'/%3e%3c/svg%3e" alt="Add Money">
+          Add Money
+        </li>
+        <li class="bar-element" id="withdrawMBtn">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%3e%3cpath%20d='M574-618q-12-30-35.5-47T482-682q-18%200-35%205t-31%2019l-58-58q14-14%2038-25.5t44-14.5v-84h80v82q45%209%2079%2036.5t51%2071.5l-76%2032ZM792-56%20608-240q-15%2015-41%2024.5T520-204v84h-80v-86q-56-14-93.5-51T292-350l80-32q12%2042%2040.5%2072t75.5%2030q18%200%2033-4.5t29-13.5L56-792l56-56%20736%20736-56%2056Z'/%3e%3c/svg%3e" alt="Withdraw Money">
+          Withdraw Money
+        </li>
+        <li class="bar-element">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%3e%3cpath%20d='M280-160%2080-360l200-200%2056%2057-103%20103h287v80H233l103%20103-56%2057Zm400-240-56-57%20103-103H440v-80h287L624-743l56-57%20200%20200-200%20200Z'/%3e%3c/svg%3e" alt="Withdraw Money">
+          Transactions
+        </li>
+        <li class="bar-element">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%3e%3cpath%20d='M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66%200-113-47t-47-113q0-66%2047-113t113-47q66%200%20113%2047t47%20113q0%2066-47%20113t-113%2047ZM40-160v-112q0-34%2017.5-62.5T104-378q62-31%20126-46.5T360-440q66%200%20130%2015.5T616-378q29%2015%2046.5%2043.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56%200-111%2013.5T140-306q-9%205-14.5%2014t-5.5%2020v32Zm240-320q33%200%2056.5-23.5T440-640q0-33-23.5-56.5T360-720q-33%200-56.5%2023.5T280-640q0%2033%2023.5%2056.5T360-560Zm0-80Zm0%20400Z'/%3e%3c/svg%3e" alt="SignUp">
+          SignUp
+        </li>
+        <li class="bar-element">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20height='24px'%20viewBox='0%20-960%20960%20960'%20width='24px'%20fill='%235f6368'%3e%3cpath%20d='M480-120v-80h280v-560H480v-80h280q33%200%2056.5%2023.5T840-760v560q0%2033-23.5%2056.5T760-120H480Zm-80-160-55-58%20102-102H120v-80h327L345-622l55-58%20200%20200-200%20200Z'/%3e%3c/svg%3e" alt="Login">
+          Login
+        </li>
+      </ul>
+    </nav>
+
+
+    <section class="container-fluid lg:px-10 mx-4 bg-[#a6eafb] h-3/4 shadow-xl rounded-xl">
+      <div id="backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden backdrop"></div>
+      
+    
+      <div class="grid grid-cols-12 gap-4">
+        <div class="md:col-span-6 col-span-12">
+          <div class="">
+            <div class="p-4">
+              <p class="font-bold text-xl text-nowrap">Current Balance</p>
+              <h1 class="text-6xl pt-4 font-semibold" id="currentBalance">$0.00</h1>
+            </div>
+          </div>
+  
+          <div class="flex pt-10">
+            <div class="mx-4">
+              <button class="text-nowrap text-white font-bold p-2 md:p-4 rounded-xl transition-transform hover:scale-105 hover:bg-[#00bfff] bg-main" id="addMBtn">Add Money</button>
+            </div>
+            <div class="">
+              <button class="text-nowrap font-bold text-white p-2 mb-4 md:p-4 rounded-xl transition-transform hover:scale-105 hover:bg-[#0077ff] bg-main" id="withdrawMBtn">Withdraw Money</button>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-12 col-span-12 ">
+          <div id="modal" class="w-2/3 rounded-xl shadow-xl bg-green-200 mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden modal">
+            <form action="">
+            <div class="flex flex-col space-y-4 p-4 ">
+              <div>
+                <label for="payMethod" class="sm:text-xl font-bold text-lg text-secondaryText">Payment Method:</label><br>
+                <select name="" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" id="payMethod" required>
+                  <option value="select" disabled selected>Select Once</option>
+                  <option value="paypal">Paypal</option>
+                  <option value="debit-card">Debit Card</option>
+                  <option value="bank-transfer">Bank Transfer</option>
+                  <option value="google-pay">Google Pay</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="email" class="sm:text-xl font-bold text-lg text-secondaryText">Email/Account Number:</label><br>
+                <input type="text" id="email" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" placeholder="Email/account number" required>
+              </div>
+
+              <div>
+                <label for="amountInputAdd" class="sm:text-xl font-bold text-lg text-secondaryText">Amount</label><br>
+                <input type="number" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" required id="amountInputAdd" placeholder="Enter amount" min="1">
+              </div>
+              
+              <div class="pt-4 text-center"><button class="w-full bg-successMessages hover:bg-green-500 py-2 text-white font-bold rounded-full transition-transform hover:scale-105" id="addMoneyBtn">Proceed</button></div>
+            </div>
+          </form>
+          </div>
+          
+          
+          <div id="modal1" class="w-2/3 rounded-xl shadow-xl bg-green-200 mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden modal1">
+            <form action="">
+            <div class="flex flex-col space-y-4 p-4 ">
+
+              <div>
+                <label for="email" class="sm:text-xl font-bold text-lg text-secondaryText">Email/Account Number:</label><br>
+                <input type="text" id="email" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" placeholder="Email/account number" required>
+              </div>
+
+              <div>
+                <label for="amountInputWithdraw" class="sm:text-xl font-bold text-lg text-secondaryText">Amount</label><br>
+                <input type="number" class="w-full h-10 rounded px-4 border focus:border-green-700 focus:outline-none focus:shadow-lg" required id="amountInputWithdraw" placeholder="Enter amount" min="1">
+              </div>
+              
+              <div class="pt-4 text-center"><button class="w-full bg-errorMessages hover:bg-red-500 py-2 text-white font-bold rounded-full transition-transform hover:scale-105" id="withdrawMoneyBtn">Withdraw</button></div>
+            </div>
+          </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="container-fluid lg:px-10 mx-4 border-t border-t-slate-200 border-b border-b-slate-300 mt-3 pt-3 mb-4 bg-sectionBackground rounded-lg">
+      <div class="flex justify-between items-center pb-3 px-4 -z-10">
+        <p class="font-bold text-2xl text-mainText">Quick Send</p>
+      
+        <button class="font-semibold text-nowrap border border-slate-300 py-1 px-2 rounded-xl cursor-pointer transition-colors hover:bg-gradient-to-r hover:from-blue-300 hover:to-blue-600 hover:text-white" id="seeAll">See All</button>
+
+      </div>
+      <div class="flex gap-3 overflow-x-scroll scrollbar-hide pb-4 px-4 ">
+        <span class="userInfo bg-[#1ee9bc]">A</span>
+        <span class="userInfo bg-secondary">B</span>
+        <span class="userInfo bg-[#b3e91e]">C</span>
+        <span class="userInfo bg-[#1e5ee9]">D</span>
+        <span class="userInfo bg-[#ff004c] text-white">E</span>
+        <span class="userInfo bg-[#e268a1]">F</span>
+        <span class="userInfo bg-secondary">G</span>
+        <span class="userInfo bg-[#dce91e]">H</span>
+        <span class="userInfo bg-[#c98585]">I</span>
+        <span class="userInfo bg-[#1ee9bc]">J</span>
+        <span class="userInfo bg-[#ff004c] text-white">K</span>
+        <span class="userInfo bg-secondary">L</span>
+      </div>
+    </section>
+
+    <section class="container-fluid lg:px-10 px-4 bg-sectionBackground rounded-lg shadow-lg">
+      <div>
+        <div class="flex justify-start items-center py-3 mb-4 border-b border-b-slate-300 px-4 shadow-lg">
+          <p class="font-bold text-2xl text-mainText">Recent transactions</p>
+        </div>
+        <div class="overflow-x-auto scrollbar-hide px-4">
+          <ul class="min-w-full h-72" id="transParent">
+            <!-- Dynamically updating -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    
+    
+   
+    
+    
+  </body>
+</html>

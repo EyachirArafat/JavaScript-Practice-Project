@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+ :root{
+  --Primary-Accent-Color: #007AFF;
+  --Secondary-Accent-Color: #FF7B00;
+  --Main-Background: #F8F9FA;
+  --Section-Backgrounds: #D5ECF1;
+  --Main-Text: #161E20;
+  --Secondary-Text: #5F6368;
+  --Success-Messages: #28C76F;
+  --Error-Messages: #FF4C4C;
+  
+ }
+}
+
+@layer utilities{
+  .userInfo{
+    @apply p-4 rounded-full w-14 h-14 flex justify-center items-center flex-shrink-0 font-bold cursor-pointer transition-transform hover:scale-105 hover:shadow-lg hover:shadow-slate-800
+  }
+}
+
+
+@layer base {
+  .scrollbar-hide {
+    /* overflow-x: auto; */
+    /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-hide::-webkit-scrollbar-thumb {
+    background-color: rgba(163, 214, 238, 0.877);
+    border-radius: 4px;
+  }
+  .scrollbar-hide::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(99, 187, 228, 0.877);
+  }
+  .scrollbar-hide::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@layer utilities{
+  .bar-element{
+    @apply cursor-pointer transition-transform hover:scale-105 duration-200 text-xl hover:bg-[#00bfff] hover:text-gray-900 p-4 flex gap-2 justify-start items-center
+  }
+  .bar-element > img {
+    @apply transition duration-200;
+  }
+  .bar-element:hover > img {
+    filter: brightness(0) invert(1); /* Makes the SVG appear white */
+  }
+}
+  
+
+
+@layer base{
+  .menu-bar {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu-bar.show {
+    max-height: 300px; 
+    opacity: 1;
+}
+}
+
+
+
+
+
+
+
+
+

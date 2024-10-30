@@ -1,1 +1,1 @@
-- ✔️ <Strong>Live view of this project:</strong> ()
+- ✔️ <Strong>Live view of this project:</strong> (https://flowerbank.vercel.app/)

@@ -53,7 +53,7 @@ function addTransaction(type, amount) {
 
   // Child div for main child div
   let div1 = document.createElement("div");
-  div1.classList.add("col-span-4");
+  div1.classList.add("col-span-5");
   div.appendChild(div1);
 
   // Child div for div1
@@ -107,7 +107,7 @@ function addTransaction(type, amount) {
 
   // Status display based on type
   let div6 = document.createElement("div");
-  div6.classList.add("text-xl", "col-span-4", "flex", "justify-end", "items-center", colorClass);
+  div6.classList.add("text-xl", "col-span-3", "flex", "justify-end", "items-center", colorClass);
   div6.innerHTML = type === "Add" ? "Completed" : "Pending";
   div.appendChild(div6);
 }
@@ -123,6 +123,10 @@ const addMoneyBtn = document.getElementById('addMoneyBtn');
 const modal = document.querySelector(".modal");
 const addMBtn = document.getElementById("addMBtn")
 const addMoneyListItem = document.getElementById('addMoneyListItem');
+const noTransactions = document.getElementById('noTransactions');
+
+noTransactions.classList.remove("hidden");
+
 
 function showAddMoneyModal(){
   modal.classList.remove("hidden");
@@ -154,6 +158,7 @@ addMoneyBtn.addEventListener('click', (event)=>{
 
     modal.classList.add('hidden');
     backdrop.classList.add('hidden');
+    noTransactions.classList.add('hidden');
   }else if(isNaN(addAmountInput)){
     alert("Action cancelled or invalid input!")
   }else{
@@ -198,6 +203,7 @@ withdrawMoneyBtn.addEventListener('click', (event)=>{
 
     modal1.classList.add('hidden');
     backdrop.classList.add('hidden');
+    noTransactions.classList.add('hidden');
   }else if(isNaN(withdrawAmountInput)){
     alert("Invalid input!");
   }else if(withdrawAmountInput > initialBalance){

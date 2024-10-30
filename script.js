@@ -122,16 +122,21 @@ const backdrop = document.querySelector(".backdrop");
 const addMoneyBtn = document.getElementById('addMoneyBtn');
 const modal = document.querySelector(".modal");
 const addMBtn = document.getElementById("addMBtn")
+const addMoneyListItem = document.getElementById('addMoneyListItem');
 
-addMBtn.addEventListener("click", () => {
+function showAddMoneyModal(){
   modal.classList.remove("hidden");
   backdrop.classList.remove("hidden");
-});
+}
+
+addMBtn.addEventListener("click", showAddMoneyModal);
+addMoneyListItem.addEventListener("click", showAddMoneyModal);
 
 backdrop.addEventListener('click', ()=>{
   modal.classList.add('hidden');
   backdrop.classList.add('hidden');
 })
+
 
 addMoneyBtn.addEventListener('click', (event)=>{
   event.preventDefault();
@@ -162,11 +167,15 @@ addMoneyBtn.addEventListener('click', (event)=>{
 const amountInputWithdraw = document.getElementById('amountInputWithdraw');
 const withdrawMBtn = document.getElementById('withdrawMBtn');
 const modal1 =document.getElementById('modal1');
+const withdrawMoneyListItem = document.getElementById('withdrawMoneyListItem');
 
-withdrawMBtn.addEventListener('click', ()=>{
+function showAddMoneyModal1(){
   modal1.classList.remove("hidden");
   backdrop.classList.remove("hidden");
-})
+}
+
+withdrawMBtn.addEventListener('click', showAddMoneyModal1);
+withdrawMoneyListItem.addEventListener('click', showAddMoneyModal1);
 
 backdrop.addEventListener('click', ()=>{
   modal1.classList.add('hidden');
